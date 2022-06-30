@@ -4,6 +4,7 @@ import Navbar from './component/Navbar';
 import AddTask from './Page/AddTask';
 import ToDo from './Page/ToDo';
 import Calender   from './Page/Calender';
+import Footer from './component/Footer';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/todo" element={<ToDo/>}></Route>
           <Route path="/calender" element={<Calender/>}></Route>
         </Routes>
+        <Footer/>
     </div>
   );
 }

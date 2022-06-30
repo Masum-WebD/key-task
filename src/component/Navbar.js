@@ -1,8 +1,11 @@
 import React from 'react';
 import {Link } from 'react-router-dom';
 const Navbar = () => {
+  const menuItem={
+    
+  }
   return (
-    <div class="navbar bg-base-100">
+    <div class="navbar bg-primary text-white ">
       <div class="navbar-start">
         <div class="dropdown">
           <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -23,10 +26,10 @@ const Navbar = () => {
           </label>
           <ul
             tabindex="0"
-            class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 "
           >
             <li>
-            <Link to='/'>Add Task</Link>
+            <Link  to='/'>Add Task</Link>
             </li>
             
             <li>
@@ -42,14 +45,14 @@ const Navbar = () => {
       <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal p-0">
           <li>
-            <Link to='/'>Add Task</Link>
+            <Link className="text-bold text-xl" to='/'>Add Task</Link>
           </li>
           
           <li>
-            <Link to='todo'>To Do</Link>
+            <Link className="text-bold text-xl" to='todo'>To Do</Link>
           </li>
           <li>
-            <Link to='calender'>Calender</Link>
+            <Link className="text-bold text-xl" to='calender'>Calender</Link>
           </li>
         </ul>
       </div>

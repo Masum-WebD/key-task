@@ -1,9 +1,9 @@
 import React from 'react';
 
-const ToDo = () => {
+const ToDo = (props) => {
     return (
-        <div>
-            <h1> todo</h1>
+        <div className="h-[500px]">
+            <h1 className="text-red"> {props.task}</h1>
         </div>
     );
 };

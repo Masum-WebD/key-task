@@ -1,17 +1,44 @@
-import React from 'react';
-
+import { toast } from "react-toastify";
 const AddTask = () => {
-    return (
-        <div className="z-10 bg-secondary  h-[500px]">
-            <div className="pt-[100px]">
-            <h2 className='text-center text-xl font-bold mb-5 text-black'> Add Your Task</h2>
-            <textarea class="textarea textarea-bordered ml-[600px]  justify-center h-[100px] w-[250px]  " placeholder="Type your task"></textarea><br />
-            <button class="btn bg-primary ml-[670px]">Button</button>
-            </div>
-           
-            
-        </div>
-    );
+  // const [task, setTask] =useState()
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let task = e.target.name.value;
+    console.log(task);
+    toast.success("Add you Task");
+    const taskDetails={task}
+
+    fetch('http://localhost:5000/task', {
+      method: "POST", 
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(taskDetails),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+        e.target.reset()
+      });
+  };
+  return (
+    <div className="z-10 bg-secondary  h-[500px]">
+      <div className="pt-[100px] ">
+        <h2 className="text-center text-xl font-bold mb-5 text-black">
+          {" "}
+          Add Your Task
+        </h2>
+        <form className=" flex justify-center" onSubmit={handleSubmit}>
+          <input
+            className="mr-2 w-[500px] text-center text-xl rounded-md"
+            type="text"
+            name="name"
+          />
+          <input className="btn  " type="submit" value="Add Task" />
+        </form>
+      </div>
+    </div>
+  );
 };
 
 export default AddTask;

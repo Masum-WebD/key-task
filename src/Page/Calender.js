@@ -11,13 +11,17 @@ const Calender = () => {
         footer = <p>You have picked: {format(selected, 'PP')}.</p>;
       }
 
-    return( <DayPicker 
-        className="center"
+    return(
+        <div className='h-[500px] flex justify-center items-center'>
+             <DayPicker 
+        className="center "
     mode="single"
     selected={selected}
     onSelect={setSelected}
     footer={footer}
-    />);
+    />
+        </div>
+    );
 };
 
 export default Calender;

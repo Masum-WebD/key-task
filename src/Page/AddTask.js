@@ -3,10 +3,13 @@ const AddTask = () => {
   // const [task, setTask] =useState()
   const handleSubmit = (e) => {
     e.preventDefault();
-    let task = e.target.name.value;
-    console.log(task);
-    toast.success("Add you Task");
-    const taskDetails={task}
+    
+    const task = e.target.name.value;
+    const date = e.target.date.value;
+    const time =e.target.time.value
+    console.log(task, date,time);
+    toast.success("Add you Task. Please check TO-DO page");
+    const taskDetails={task,date,time}
 
     fetch('http://localhost:5000/task', {
       method: "POST", 
@@ -34,6 +37,8 @@ const AddTask = () => {
             type="text"
             name="name"
           />
+          <input className='mr-2' type="date" name='date' />
+          <input className='mr-2' type="time" name='time' />
           <input className="btn  " type="submit" value="Add Task" />
         </form>
       </div>

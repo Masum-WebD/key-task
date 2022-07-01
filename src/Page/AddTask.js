@@ -3,16 +3,17 @@ const AddTask = () => {
   // const [task, setTask] =useState()
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     const task = e.target.name.value;
     const date = e.target.date.value;
-    const time =e.target.time.value
-    console.log(task, date,time);
-    toast.success("Add you Task. Please check TO-DO page");
-    const taskDetails={task,date,time}
+    const time = e.target.time.value;
+    console.log(task, date, time);
 
-    fetch('http://localhost:5000/task', {
-      method: "POST", 
+    toast.success("Add you Task. Please check TO-DO page");
+    const taskDetails = { task, date, time };
+
+    fetch("https://arcane-atoll-16956.herokuapp.com/task", {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
@@ -21,8 +22,13 @@ const AddTask = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log("Success:", data);
-        e.target.reset()
+        e.target.reset();
       });
+  };
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      console.log("enter press here! ");
+    }
   };
   return (
     <div className="z-10 bg-secondary  h-[500px]">
@@ -31,15 +37,19 @@ const AddTask = () => {
           {" "}
           Add Your Task
         </h2>
-        <form className=" flex justify-center" onSubmit={handleSubmit}>
+        <form
+          className=" flex justify-center"
+          onKeyPress={handleKeyPress}
+          onSubmit={handleSubmit}
+        >
           <input
             className="mr-2 w-[500px] text-center text-xl rounded-md"
             type="text"
             name="name"
           />
-          <input className='mr-2' type="date" name='date' />
-          <input className='mr-2' type="time" name='time' />
-          <input className="btn  " type="submit" value="Add Task" />
+          <input className="mr-2" type="date" name="date" required />
+          <input className="mr-2" type="time" name="time" required />
+          <input className="btn  " type="submit" value="Add Task" required />
         </form>
       </div>
     </div>

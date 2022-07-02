@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 const Navbar = () => {
-  const menuItem = {};
   return (
     <div className="navbar bg-primary text-white ">
       <div className="navbar-start">
@@ -37,9 +36,9 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl" href=" ">
+        <Link to='/' className="btn btn-ghost normal-case text-xl" href=" ">
           Set your Goal
-        </a>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">

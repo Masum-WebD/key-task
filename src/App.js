@@ -7,6 +7,7 @@ import Calender   from './Page/Calender';
 import Footer from './component/Footer';
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import CompleteTask from './Page/CompleteTask';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<AddTask/>}></Route>
           <Route path="/todo" element={<ToDo/>}></Route>
           <Route path="/calender" element={<Calender/>}></Route>
+          <Route path="/todo/:completeId" element={<CompleteTask/>}></Route>
         </Routes>
         <Footer/>
         <ToastContainer/>

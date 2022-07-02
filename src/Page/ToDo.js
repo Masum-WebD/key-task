@@ -22,7 +22,7 @@ const ToDo = () => {
     );
   }
   return (
-    <div className="h-[500px]">
+    <div >
       <h1 className="text-center text-2xl py-5">
         {" "}
         Your Task. Please Complete your Task.{" "}
